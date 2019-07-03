@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "name": "asp-net-core",
+    "builds": [
+      {
+        "src": "AspNetNow.csproj",
+        "use": "now-dotnet-aws-lambda-bin"
+      },
+      { 
+        "src": "/wwwroot/**",
+        "use": "@now/static"
+      }
+    ],
+    "routes": [
+      {"src": "^/js/(.*)", "dest": "/wwwroot/js/$1"},
+      {"src": "^/css/(.*)", "dest": "/wwwroot/css/$1"},
+      {"src": "^/images/(.*)", "dest": "/wwwroot/images/$1"},
+      {"src": "^/lib/(.*)", "dest": "/wwwroot/lib/$1"},
+      { "src": ".*", "dest": "index" }
+    ]
+  }
